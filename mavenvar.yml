@@ -1,0 +1,11 @@
+--- # This playbook is for setting the environmental variable for maven
+
+- hosts: testserver
+  environment:
+    PATH: $PATH:/opt/apache-maven-3.6.0/bin
+    SOME: value
+
+  tasks:
+    
+   
+       

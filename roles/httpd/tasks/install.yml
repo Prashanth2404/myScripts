@@ -1,0 +1,12 @@
+---
+
+ - name: To install Java  Version "{{ java }}"
+   yum:
+     name: "{{ java }}"
+     state: installed  
+
+ - name: To install the Apachd Web Sever
+   yum:
+     name: "{{ package }}"
+     state: installed
+

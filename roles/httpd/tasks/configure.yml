@@ -1,0 +1,16 @@
+---
+
+ - name: To deploy html code
+   copy:
+     src: files/index.html
+     dest: /var/www/html/index.html
+     mode: 0644
+     owner: root
+     group: root
+   notify: restart apache
+
+ - name: To copy Apache Configuration File
+   template:
+     src: templates/httpd.conf.j2
+     dest: /etc/httpd/conf/httpd.conf
+     mode: 0644

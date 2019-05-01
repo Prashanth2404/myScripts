@@ -1,0 +1,16 @@
+--- # This playbook will install telnet on my testserver
+- hosts: testserver
+  vars:
+    pkg: telnet
+
+
+
+  tasks:
+  - name: This will install the '{{ pkg }}'
+    yum:
+      name: '{{ pkg }}'
+      state: latest
+ 
+    
+
+

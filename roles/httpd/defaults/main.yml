@@ -1,0 +1,7 @@
+---
+# defaults file for httpd
+
+httpd_port: 80
+Team: Promotions
+java: java-1.8.0-openjdk-devel
+

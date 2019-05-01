@@ -1,0 +1,23 @@
+---
+#HEADER SECTION
+ - name: This playbook will demonstrate variables
+   hosts: webservers
+   vars_files:
+     - myvars.yml
+
+# TASK SECTION
+   tasks:
+
+    - name: This task will install a package name "{{ mypackage }}" from reading variable
+      yum:
+        name: "{{ mypackage }}"
+        state: installed
+
+    - name: This task will create a file  name "{{ myfile }}" from reading variable
+      file:
+        name: "{{ myfile }}"
+        state: touch
+        mode: 0755
+        owner: ec2-user
+        group: root
+

@@ -1,0 +1,12 @@
+---
+
+ - name: This playbook will call the httpd role
+   hosts: webservers
+   vars:
+     Team: Sales
+     java: java-1.7.0-openjdk-devel
+     httpd_port: 8080
+   roles:
+     - httpd
+
+

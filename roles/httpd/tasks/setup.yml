@@ -1,0 +1,21 @@
+---
+
+  - name: To createa a group
+    group:
+      name: "{{ mygroup }}"
+      state: present
+
+  - name: To create a user
+    user:
+      name: "{{ myuser }}"
+      state: present
+      group: "{{ mygroup }}"
+
+  - name: To create a directory for logs
+    file:
+      path: /opt/httpd_logs
+      state: directory
+      owner: "{{ myuser }}"
+      group: "{{ mygroup }}"
+      mode: 0644
+

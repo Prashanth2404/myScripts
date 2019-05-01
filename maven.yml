@@ -1,0 +1,40 @@
+--- # This will install the tomcat and its dependices in the testserver.
+
+- hosts: testserver
+  vars:
+    environment:
+      PATH: /opt/apache-maven-3.6.0/bin:{{ ansible.env.PATH }}
+
+  tasks:
+
+  - name: To createa a group
+    group:
+      name: maven
+      state: present
+      
+  - name: To create a user
+    user:
+      name: maven
+      state: present
+      group: maven
+
+  - name: To create a directory for logs
+    file:
+      path: /opt/maven_logs
+      state: directory
+      owner: maven
+      group: tomcat
+      mode: 0644
+ 
+  - name: To download the archive
+    get_url:
+      url: http://mirrors.estointernet.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+      dest: /opt/apache-maven-3.6.0-bin.tar.gz
+      
+
+  - name: To untar and unzip the archive
+    unarchive:
+      src: /opt/apache-maven-3.6.0-bin.tar.gz
+      dest: /opt
+      mode: 0755
+      remote_src: yes 

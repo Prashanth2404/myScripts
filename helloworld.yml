@@ -1,0 +1,20 @@
+---
+#This is my first playbook
+#This is a simple playbook
+#Each playbook has 2 sections
+
+#HEADER SECTION
+ - name: This is a Helloworld playbook which create a file
+   hosts: webservers
+
+# TASK SECTION
+
+   tasks:
+# A task has 2 things, a name and a module declaration
+    - name: This will create a file called Helloworld.txt
+      file:
+        path: /opt/HelloWorld.txt
+        state: touch
+        owner: root
+        group: root
+        mode: 0644
